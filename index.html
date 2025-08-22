@@ -1,65 +1,50 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Confirmación 15 Años</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f8f8f8; padding: 20px; }
-    .persona { background: #fff; padding: 15px; margin: 10px 0; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    label { display: block; margin-top: 10px; }
-    button { margin-top: 20px; padding: 10px 20px; border: none; background: #ff66b2; color: #fff; font-weight: bold; border-radius: 8px; cursor: pointer; }
-    button:hover { background: #e0559c; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Confirmación</title>
 </head>
 <body>
-  <h2>Confirmá tu asistencia 🎉</h2>
+  <h1>Confirmá tu asistencia 🎉</h1>
 
-  <label for="cantidad">¿Por cuántas personas confirmás?</label>
-  <select id="cantidad" onchange="generarCampos()">
-    <option value="0">Seleccionar...</option>
-    <option value="1">1 persona</option>
-    <option value="2">2 personas</option>
-    <option value="3">3 personas</option>
-    <option value="4">4 personas</option>
-  </select>
+  <form action="https://formsubmit.co/sarmientojanet81@gmail.com" method="POST">
+    <!-- Nombre -->
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+    <br><br>
 
-  <!-- IMPORTANTE: action apunta a FormSubmit -->
-  <form id="formulario" method="POST" action="https://formsubmit.co/sarmientojanet81@gmail.com">
-    <div id="contenedor"></div>
-    
-    <!-- Opciones extra de FormSubmit -->
-    <input type="hidden" name="_captcha" value="false"> <!-- evita el captcha -->
-    <input type="hidden" name="_subject" value="Nueva confirmación de asistencia"> <!-- asunto del mail -->
-    
+    <!-- Email -->
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <br><br>
+
+    <!-- DNI -->
+    <label>DNI:</label>
+    <input type="text" name="dni">
+    <br><br>
+
+    <!-- Tipo de comida -->
+    <label>Tipo de comida:</label>
+    <select name="comida">
+      <option value="normal">Normal</option>
+      <option value="vegetariana">Vegetariana</option>
+      <option value="vegana">Vegana</option>
+      <option value="celiaco">Celíaco</option>
+    </select>
+    <br><br>
+
+    <!-- Botón enviar -->
     <button type="submit">Enviar confirmación</button>
+
+    <!-- Opciones ocultas para personalizar -->
+    <input type="hidden" name="_next" value="https://janesarmiento.github.io/formulario/gracias.html">
+    <input type="hidden" name="_subject" value="🎉 Nueva confirmación de asistencia">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_autoresponse" value="¡Gracias por confirmar tu asistencia! Nos vemos en la fiesta 🎉">
   </form>
-
-  <script>
-    function generarCampos() {
-      const cantidad = document.getElementById("cantidad").value;
-      const contenedor = document.getElementById("contenedor");
-      contenedor.innerHTML = "";
-
-      for (let i = 1; i <= cantidad; i++) {
-        let div = document.createElement("div");
-        div.classList.add("persona");
-        div.innerHTML = `
-          <h3>Persona ${i}</h3>
-          <label>Nombre:</label>
-          <input type="text" name="nombre${i}" required>
-          <label>DNI:</label>
-          <input type="text" name="dni${i}" required>
-          <label>Requerimiento alimenticio:</label>
-          <select name="comida${i}">
-            <option value="Ninguno">Ninguno</option>
-            <option value="Vegetariano">Vegetariano</option>
-            <option value="Vegano">Vegano</option>
-            <option value="Celíaco">Celíaco</option>
-          </select>
-        `;
-        contenedor.appendChild(div);
-      }
-    }
-  </script>
 </body>
 </html>
+
