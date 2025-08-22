@@ -89,6 +89,17 @@
       }
     }
 
+<script>
+  const form = document.getElementById("miForm");
+  form.addEventListener("submit", function(e) {
+    // Usamos un pequeño delay para asegurarnos de que Formsubmit reciba los datos
+    setTimeout(() => {
+      window.location.href = "https://janesarmiento.github.io/tarjeta-15/gracias.html";
+    }, 500); // medio segundo de espera
+  });
+</script>
+
+    
     generarCampos(cantidadSelect.value);
 
     cantidadSelect.addEventListener("change", (e) => {
@@ -98,6 +109,7 @@
 
 </body>
 </html>
+
 
 
 
