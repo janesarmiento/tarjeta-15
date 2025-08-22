@@ -89,27 +89,23 @@
       }
     }
 
-<script>
-  const form = document.getElementById("miForm");
-  form.addEventListener("submit", function(e) {
-    // Usamos un pequeño delay para asegurarnos de que Formsubmit reciba los datos
-    setTimeout(() => {
-      window.location.href = "https://janesarmiento.github.io/tarjeta-15/gracias.html";
-    }, 500); // medio segundo de espera
-  });
-</script>
-
-    
     generarCampos(cantidadSelect.value);
 
     cantidadSelect.addEventListener("change", (e) => {
       generarCampos(e.target.value);
     });
+
+    // 🔹 Redirección segura después de enviar
+    const form = document.getElementById("miForm");
+    form.addEventListener("submit", function(e) {
+      setTimeout(() => {
+        window.location.href = "https://janesarmiento.github.io/tarjeta-15/gracias.html";
+      }, 500); // medio segundo de espera para que se envíen los datos
+    });
   </script>
 
 </body>
 </html>
-
 
 
 
